@@ -1,0 +1,25 @@
+from pydantic import BaseModel, Field
+from typing import Optional, List
+
+class Product(BaseModel):
+    lcid: int = Field(..., description="Locally ID")
+    lcid_slug: str = Field(..., description="Locally ID slug")
+    variant_barcode: str = Field(..., description="Variant barcode")
+    variant_inventory_qty: int = Field(..., description="Variant inventory quantity")
+    handle: str = Field(..., description="Product handle")
+    vendor: str = Field(..., description="Vendor name")
+    product_gender: str = Field(..., description="Product gender")
+    title: str = Field(..., description="Product title")
+    tags: List[str] = Field(default_factory=list, description="Product tags")
+    type: str = Field(..., description="Product type")
+    option1_name: Optional[str] = Field(None, description="Option 1 name")
+    option1_value: Optional[str] = Field(None, description="Option 1 value")
+    option2_name: Optional[str] = Field(None, description="Option 2 name")
+    option2_value: Optional[str] = Field(None, description="Option 2 value")
+    variant_price: float = Field(..., description="Variant price")
+    variant_compare_at_price: Optional[float] = Field(None, description="Variant compare at price")
+    variant_image: Optional[str] = Field(None, description="Variant image URL")
+    body_html: Optional[str] = Field(None, description="Product description HTML")
+    published: bool = Field(..., description="Whether the product is published")
+    gift_card: bool = Field(..., description="Whether the product is a gift card")
+    weight_lbs: Optional[float] = Field(None, description="Product weight in pounds") 
